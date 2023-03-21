@@ -7,10 +7,14 @@ let loading = alert("Page loading...");
 document.addEventListener('DOMContentLoaded', function (){
 // listener for adding new movie
 var movieTitle = document.querySelector('.movieTitle');
-movieTitle.addEventListener('input', addMovie);
+movieTitle.addEventListener('input', function (e){
+    addMovie();
+    });
 // listener for adding movie rating
 var movieRating = document.querySelector('.movieRating');
-movieRating.addEventListener('input', addMovie);
+movieRating.addEventListener('input', function (e){
+
+});
 
 // pulling data from glitch json file
 $.ajax({
@@ -41,8 +45,8 @@ $.ajax({
 
 // Create a form for adding a new movie that has fields for the movie's title and rating
 // When the form is submitted, the page should not reload / refresh, instead, your javascript should make a POST request to /movies with the information the user put into the form
-function addMovie(e) {
-    e.preventDefault(); //<-- why arnt you working
+function addMovie() {
+    //e.preventDefault(); //<-- why arnt you working
     let newMovie = {
         title: movieTitle.value,
         rating: movieRating.value
@@ -51,9 +55,9 @@ function addMovie(e) {
 // ajax POST request for user adding movie info
     $.ajax({
         type: "POST",
-        url: 'https://better-glowing-algebra.glitch.me/movies'
+        url: 'https://better-glowing-algebra.glitch.me/movies',
+        body: addMovie().send(JSON.stringify(newMovie))
     }).done(function (data){
-        addMovie().send(JSON.stringify(newMovie));
         movieTitle.value = "";
     })
 };
