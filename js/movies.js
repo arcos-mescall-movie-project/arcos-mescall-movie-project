@@ -42,13 +42,14 @@ $.ajax({
                 title: movieTitle.value,
                 rating: movieRating.value
             };
+            console.log(newMovie);
             return newMovie;
         }
 // ajax POST request for user adding movie info
         $.ajax({
             type: "POST",
             url: 'https://better-glowing-algebra.glitch.me/movies',
-            body: JSON.stringify(addMovie())
+            data: addMovie()
         }).done(function () {
             // document.getElementsByClassName('.movies').innerHTML = addMovie();
         })
