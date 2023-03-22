@@ -1,7 +1,7 @@
 "use strict";
 
-// loading message to be replaced with movie info
-let loading = alert("Page loading...");
+// // loading message to be replaced with movie info
+// let loading = alert("Page loading...");
 
 // listener for loading listeners
 document.addEventListener('DOMContentLoaded', function (){
@@ -22,11 +22,13 @@ $.ajax({
         let genre = data[i].genre;
         let id = data[i].id;
         // generating movie info for html
-        movieList += '<p>' + title + '</p>' +
+        movieList += '<div class="border border-danger cards">' +
+            '<h3>' + title + '</h3>' +
             '<p>' + director + '</p>' +
             '<p>' + rating + '</p>' +
             '<p>' + genre + '</p>' +
-            '<p>' + id + '</p>';
+            '<p>' + id + '</p>' +
+            '</div>';
         }
     // sending movie info to div
     $('.movies').html(movieList);

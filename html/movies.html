@@ -9,22 +9,35 @@
     <script src="../js/movies.js"></script>
 <!--    inserting bootstrap css-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+<!--inserting css -->
+    <link href="../css/movies.css" rel="stylesheet">
+
 </head>
 <body>
-<!--loading message before movie info-->
-<div class="loading" onload="loading"></div>
-<!--movie info-->
-<div class="movies"></div>
-<!--form for user inputting movie info-->
-<form>
-    <div class="input-group input-group-lg">
-        <button class="btnOne">Add New Movie</button>
-        <input type="text" class="movieTitle form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
-        <input type="text" class="movieRating form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
-    </div>
-</form>
+    <nav class="navbar sticky-top navbar-light" style="background-color: #09090a;">
+        <a class="" href="#">Movies</a>
+        <h4 class="bs-danger-text"><i>Movies</i></h4>
+        <a class="" href="#">New & Popular</a>
+    </nav>
 
-<!--inserting bootstrap js-->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <!--loading message before movie info-->
+<!--    <div class="loadi="loading"></div>-->
+    <!--movie info-->
+    <div class="container border border-danger">
+        <div class="row border border-danger m-5">
+            <div class="movies text-center movies-row"></div>
+        </div>
+    </div>
+    <!--form for user inputting movie info-->
+    <form>
+        <div class="input-group input-group-lg">
+            <button class="btnOne">Add New Movie</button>
+            <input type="text" class="movieTitle form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+            <input type="text" class="movieRating form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+        </div>
+    </form>
+
+    <!--inserting bootstrap js-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
 </html>
