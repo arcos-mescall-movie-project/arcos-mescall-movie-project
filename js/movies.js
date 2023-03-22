@@ -1,7 +1,7 @@
 "use strict";
 
 // // loading message to be replaced with movie info
-// let loading = alert("Page loading...");
+let loading = alert("Page loading...");
 
 // listener for loading listeners
 document.addEventListener('DOMContentLoaded', function (){
@@ -19,14 +19,17 @@ $.ajax({
         let title = data[i].title;
         // let director = data[i].director;
         let rating = data[i].rating;
-        // let genre = data[i].genre;
+        let genre = data[i].genre;
         // let id = data[i].id;
         // generating movie info for html
+        if(genre === undefined){
+            genre = "Family";
+        }
         movieList += '<div class="border border-danger cards">' +
-            '<h3>' + title + '</h3>' +
+            '<h3>' + "Title: " + title + '</h3>' +
             // '<p>' + director + '</p>' +
-            '<p>' + rating + '</p>' +
-            // '<p>' + genre + '</p>' +
+            '<p>' + "Rating: " + rating + '</p>' +
+            '<p>' + "Genre: " + genre + '</p>' +
             // '<p>' + id + '</p>' +
             '</div>';
     }
@@ -78,18 +81,20 @@ $.ajax({
         let id = data[i].id;
         // generating movie info for html
         movieList += '<div class="border border-danger cards">' +
-            `<option value=${id}> <h3>` + title + '</h3>' +
+            `<option value=${id}> <h3>` + "Title: " + title + ", " + '</h3>' +
             " " +
-            '<p>' + rating + '</p></option>' +
+            '<p>' + "Rating: " + rating + '</p></option>' +
             // '<p>' + id +'</p>'+
             '</div>';
     }
     $('.movieSelection').html(movieList);
+    $('.movieDeleteSelect').html(movieList);
 })
 
 // user input for editing movie from selector
     let movieSelect = document.querySelector('.movieSelection');
     let movieEdit = document.querySelector('.editMovie');
+    let movieEditTwo = document.querySelector('.editMovieTwo')
     let buttonControlTwo = document.querySelector('.btnTwo');
 
      buttonControlTwo.addEventListener('click', function (e){
@@ -98,17 +103,22 @@ $.ajax({
         $.ajax({
             type: "PATCH",
             url: 'https://better-glowing-algebra.glitch.me/movies/'+movieSelect.value,
-            data: {title: movieEdit.value}
+            data: {title: movieEdit.value,
+                    rating: movieEditTwo.value
+                    }
         })
-         console.log(movieSelect.value);
-         console.log(movieEdit.value);
      })
 
+// ajax request for deleting a movie
+    let movieDelete = document.querySelector('.movieDeleteSelect');
+    let buttonControlThree = document.querySelector('.btnThree');
+    buttonControlThree.addEventListener('click', function (e){
+        e.preventDefault();
     $.ajax({
         type: "DELETE",
-        url: 'https://better-glowing-algebra.glitch.me/movies/',
-
-    })
+        url: 'https://better-glowing-algebra.glitch.me/movies/' +movieDelete.value
+    });
+    });
 
 });
 
