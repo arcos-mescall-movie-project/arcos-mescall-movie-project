@@ -15,23 +15,18 @@ $.ajax({
     let movieList = "";
     let i;
     // for loop to create movie info for empty string
-    for (i = 0; i < 6; i++) { // <-- why can't we iterate until index 6?
+    for (i = 0; i < 6; i++) {
         let title = data[i].title;
-        // let director = data[i].director;
         let rating = data[i].rating;
         let genre = data[i].genre;
-        // let id = data[i].id;
         // generating movie info for html
         if(genre === undefined){
             genre = "Family";
         }
         movieList += '<div class="cards">' +
             '<h3 class="ps-2">' + "Title: " + title + '</h3>' +
-            // '<img src="../pics/pexels-pixabay-33129.jpg" class="img-size">' +
-            // '<p>' + director + '</p>' +
             '<p class="ps-1">' + "Rating: " + rating + '</p>' +
             '<p class="ps-1">' + "Genre: " + genre + '</p>' +
-            // '<p>' + id + '</p>' +
             '</div>';
     }
     $('.movies').html(movieList);
@@ -56,18 +51,12 @@ $.ajax({
             url: 'https://better-glowing-algebra.glitch.me/movies/',
             data: addMovie()
         }).done(function () {
-            // document.getElementsByClassName('.movies').innerHTML = addMovie();
         })
         console.log("is this working?");
         console.log(data);
     })
 
-//allowing users to edit existing movies
-//     Give users the option to edit an existing movie
-//     A form should be pre-populated with the selected movie's details
-//     Like creating a movie, this should not involve any page reloads, instead your javascript code should make an ajax request when the form is submitted.
-
-// dropdown for selecting your movie to edit
+// dropdown for selecting your movie to edit, delete and select all movies
 $.ajax({
     url: 'https://better-glowing-algebra.glitch.me/movies'
 }).done(function (data) {
@@ -85,7 +74,6 @@ $.ajax({
             `<option value=${id}> <h3>` + "Title: " + title + ", " + '</h3>' +
             " " +
             '<p>' + "Rating: " + rating + '</p></option>' +
-            // '<p>' + id +'</p>'+
             '</div>';
     }
     $('.movieSelection').html(movieList);
@@ -122,50 +110,9 @@ $.ajax({
     });
     });
 
-//filter movies
-//     let movieFilter = document.querySelector('.movieFilterTitle');
-//     let buttonControlFour = document.querySelector('.btnThree');
-//     buttonControlFour.addEventListener('click', function (e){
-//         e.preventDefault();
-//         $.ajax({
-//             url: 'https://better-glowing-algebra.glitch.me/movies/' +movieFilter.value
-//         });
-//     });
-
-    let buttonControlFour = document.querySelector('.btnFour');
+    //this is for the 'all movies' dropdown in html and is attached at the bottom of edit movies
     let movieFilterTitle = document.querySelector('.movieFilterTitle');
-    buttonControlFour.addEventListener('click', function (e){
-        // $.ajax({
-        //     url: 'https://better-glowing-algebra.glitch.me/movies'
-        // }).done(function (data) {
-        //     e.preventDefault();
-        //     let movieList = "";
-        //     let i;
-        //     // for loop to create movie info for empty string
-        //     for (i = 5; i < data.length; i++) {
-        //         let title = data[i].title;
-        //         // let director = data[i].director;
-        //         let rating = data[i].rating;
-        //         let genre = data[i].genre;
-        //         // let id = data[i].id;
-        //         // generating movie info for html
-        //         if (genre === undefined) {
-        //             genre = "Family";
-        //         }
-        //         movieList += '<div class="cards">' +
-        //             '<option>' +
-        //             '<h3>' + "Title: " + title + '</h3>' +
-        //             // '<img src="../pics/pexels-pixabay-33129.jpg" class="img-size">' +
-        //             // '<p>' + director + '</p>' +
-        //             '<p>' + "Rating: " + rating + '</p>' +
-        //             '<p>' + "Genre: " + genre + '</p>' +
-        //             // '<p>' + id + '</p>' +
-        //             '</option>' +
-        //             '</div>';
-        //     }
-        //
-        // })
-    })
+
 });
 
 
