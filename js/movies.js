@@ -15,7 +15,7 @@ $.ajax({
     let movieList = "";
     let i;
     // for loop to create movie info for empty string
-    for (i = 0; i < data.length; i++) {
+    for (i = 0; i < data.movies.length[6]; i++) { // <-- why can't we iterate until index 6?
         let title = data[i].title;
         // let director = data[i].director;
         let rating = data[i].rating;
@@ -90,6 +90,7 @@ $.ajax({
     }
     $('.movieSelection').html(movieList);
     $('.movieDeleteSelect').html(movieList);
+    $('.movieFilterTitle').html(movieList);
 })
 
 // user input for editing movie from selector
@@ -131,12 +132,40 @@ $.ajax({
 //         });
 //     });
 
-    // let buttonControlFour = document.querySelector('.btnFour');
-    // let movieFilterTitle = document.querySelector('.movieFilterTitle');
-    // buttonControlFour.addEventListener('click', function (e){
-    //     e.preventDefault();
-    //     filterMoviesByTitle(movieFilterTitle.value);
-    // })
+    let buttonControlFour = document.querySelector('.btnFour');
+    let movieFilterTitle = document.querySelector('.movieFilterTitle');
+    buttonControlFour.addEventListener('click', function (e){
+        // $.ajax({
+        //     url: 'https://better-glowing-algebra.glitch.me/movies'
+        // }).done(function (data) {
+        //     e.preventDefault();
+        //     let movieList = "";
+        //     let i;
+        //     // for loop to create movie info for empty string
+        //     for (i = 5; i < data.length; i++) {
+        //         let title = data[i].title;
+        //         // let director = data[i].director;
+        //         let rating = data[i].rating;
+        //         let genre = data[i].genre;
+        //         // let id = data[i].id;
+        //         // generating movie info for html
+        //         if (genre === undefined) {
+        //             genre = "Family";
+        //         }
+        //         movieList += '<div class="cards">' +
+        //             '<option>' +
+        //             '<h3>' + "Title: " + title + '</h3>' +
+        //             // '<img src="../pics/pexels-pixabay-33129.jpg" class="img-size">' +
+        //             // '<p>' + director + '</p>' +
+        //             '<p>' + "Rating: " + rating + '</p>' +
+        //             '<p>' + "Genre: " + genre + '</p>' +
+        //             // '<p>' + id + '</p>' +
+        //             '</option>' +
+        //             '</div>';
+        //     }
+        //
+        // })
+    })
 });
 
 
