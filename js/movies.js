@@ -26,11 +26,11 @@ $.ajax({
             genre = "Family";
         }
         movieList += '<div class="cards">' +
-            '<h3>' + "Title: " + title + '</h3>' +
+            '<h3 class="ps-2">' + "Title: " + title + '</h3>' +
             // '<img src="../pics/pexels-pixabay-33129.jpg" class="img-size">' +
             // '<p>' + director + '</p>' +
-            '<p>' + "Rating: " + rating + '</p>' +
-            '<p>' + "Genre: " + genre + '</p>' +
+            '<p class="ps-1">' + "Rating: " + rating + '</p>' +
+            '<p class="ps-1">' + "Genre: " + genre + '</p>' +
             // '<p>' + id + '</p>' +
             '</div>';
     }
