@@ -15,7 +15,7 @@ $.ajax({
     let movieList = "";
     let i;
     // for loop to create movie info for empty string
-    for (i = 0; i < data.movies.length[6]; i++) { // <-- why can't we iterate until index 6?
+    for (i = 0; i < 6; i++) { // <-- why can't we iterate until index 6?
         let title = data[i].title;
         // let director = data[i].director;
         let rating = data[i].rating;
