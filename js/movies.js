@@ -25,8 +25,9 @@ $.ajax({
         if(genre === undefined){
             genre = "Family";
         }
-        movieList += '<div class="border border-danger cards">' +
+        movieList += '<div class="cards">' +
             '<h3>' + "Title: " + title + '</h3>' +
+            // '<img src="../pics/pexels-pixabay-33129.jpg" class="img-size">' +
             // '<p>' + director + '</p>' +
             '<p>' + "Rating: " + rating + '</p>' +
             '<p>' + "Genre: " + genre + '</p>' +
@@ -120,7 +121,25 @@ $.ajax({
     });
     });
 
+//filter movies
+//     let movieFilter = document.querySelector('.movieFilterTitle');
+//     let buttonControlFour = document.querySelector('.btnThree');
+//     buttonControlFour.addEventListener('click', function (e){
+//         e.preventDefault();
+//         $.ajax({
+//             url: 'https://better-glowing-algebra.glitch.me/movies/' +movieFilter.value
+//         });
+//     });
+
+    // let buttonControlFour = document.querySelector('.btnFour');
+    // let movieFilterTitle = document.querySelector('.movieFilterTitle');
+    // buttonControlFour.addEventListener('click', function (e){
+    //     e.preventDefault();
+    //     filterMoviesByTitle(movieFilterTitle.value);
+    // })
 });
+
+
 
 
 
