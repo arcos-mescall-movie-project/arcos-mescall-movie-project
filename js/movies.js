@@ -15,7 +15,7 @@ $.ajax({
     let movieList = "";
     let i;
     // for loop to create movie info for empty string
-    for (i = 0; i < 6; i++) {
+    for (i = 0; i < 9; i++) {
         let title = data[i].title;
         let rating = data[i].rating;
         let genre = data[i].genre;
